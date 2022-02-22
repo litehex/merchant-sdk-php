@@ -1,0 +1,24 @@
+{
+   "name": "litehex/merchant-sdk-php",
+   "description": "Open-source PHP library that makes it easy to integrate your PHP application with Litehex Merchant.",
+   "minimum-stability": "dev",
+   "prefer-stable": true,
+   "version": "1.0.0",
+   "license": "MIT",
+   "authors": [
+	  {
+		 "name": "Shahrad Elahi",
+		 "email": "shahrad@litehex.com"
+	  }
+   ],
+   "require": {
+	  "php": ">=7.4",
+	  "ext-curl": "*",
+	  "ext-json": "*"
+   },
+   "autoload": {
+	  "psr-4": {
+		 "LiteHex\\MerchantSDK\\": "src/"
+	  }
+   }
+}

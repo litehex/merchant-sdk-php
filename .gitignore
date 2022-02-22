@@ -1,0 +1,6 @@
+# Jetbrain project structure
+.idea
+
+# Installed test libraries
+vendor
+
