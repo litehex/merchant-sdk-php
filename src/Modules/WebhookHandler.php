@@ -22,7 +22,8 @@ abstract class WebhookHandler implements WebhookEvents
     public function handleUpdate(string $type, array $input): void
     {
         if ($type == "PING_WEBHOOK") $this->sendStatus();
-        ($this->getUpdateType($type))($input);
+        $method = $this->getUpdateType($type);
+        $this->$method($input);
     }
 
     /**
