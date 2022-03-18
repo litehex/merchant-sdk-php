@@ -1,6 +1,6 @@
 <?php
 
-namespace LiteHex\MerchantSDK\Interfaces;
+namespace MerchantSDK\Interfaces;
 
 /**
  * Webhook Events

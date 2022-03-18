@@ -1,6 +1,6 @@
 <?php
 
-namespace LiteHex\MerchantSDK;
+namespace MerchantSDK;
 
 /**
  * Constants

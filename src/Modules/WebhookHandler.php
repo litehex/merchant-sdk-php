@@ -1,8 +1,8 @@
 <?php
 
-namespace LiteHex\MerchantSDK\Modules;
+namespace MerchantSDK\Modules;
 
-use LiteHex\MerchantSDK\Interfaces\WebhookEvents;
+use MerchantSDK\Interfaces\WebhookEvents;
 
 /**
  * Webhook Handler

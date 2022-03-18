@@ -1,6 +1,6 @@
 <?php
 
-namespace LiteHex\MerchantSDK\Exceptions;
+namespace MerchantSDK\Exceptions;
 
 /**
  * Invalid Token Exception

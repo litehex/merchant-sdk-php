@@ -1,11 +1,11 @@
 <?php
 
-namespace LiteHex\MerchantSDK;
+namespace MerchantSDK;
 
-use LiteHex\MerchantSDK\Features\Invoices;
-use LiteHex\MerchantSDK\Features\Products;
-use LiteHex\MerchantSDK\Features\Server;
-use LiteHex\MerchantSDK\Modules\WebhookHandler;
+use MerchantSDK\Features\Invoices;
+use MerchantSDK\Features\Products;
+use MerchantSDK\Features\Server;
+use MerchantSDK\Modules\WebhookHandler;
 
 /**
  * Api

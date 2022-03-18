@@ -1,10 +1,10 @@
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
 
-class MyHandler extends \Litehex\MerchantSDK\Modules\WebhookHandler
+class MyHandler extends \MerchantSDK\Modules\WebhookHandler
 {
 
-    public function __construct(\Litehex\MerchantSDK\Api $API)
+    public function __construct(\MerchantSDK\Api $API)
     {
         // TODO: Initialize things here.
     }
@@ -35,5 +35,5 @@ $settings = [
     'ip_strict' => true, // Highly recommended
 ];
 
-$TronGate = new \Litehex\MerchantSDK\Api("493140774:a52d0f343000f2aeb773c6bd6233bd92");
+$TronGate = new \MerchantSDK\Api("493140774:a52d0f343000f2aeb773c6bd6233bd92");
 $TronGate->setupWebhookHandler(MyHandler::class, $settings);

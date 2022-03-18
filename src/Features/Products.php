@@ -1,8 +1,8 @@
 <?php
 
-namespace LiteHex\MerchantSDK\Features;
+namespace MerchantSDK\Features;
 
-use LiteHex\MerchantSDK\Utils\ApiRequest;
+use MerchantSDK\Utils\ApiRequest;
 
 /**
  * Products

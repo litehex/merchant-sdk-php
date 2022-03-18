@@ -1,8 +1,8 @@
 <?php
 
-namespace LiteHex\MerchantSDK\Utils;
+namespace MerchantSDK\Utils;
 
-use LiteHex\MerchantSDK\Constants;
+use MerchantSDK\Constants;
 
 /**
  * ApiRequest

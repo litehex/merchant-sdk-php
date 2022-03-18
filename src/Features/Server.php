@@ -1,9 +1,9 @@
 <?php
 
-namespace LiteHex\MerchantSDK\Features;
+namespace MerchantSDK\Features;
 
-use LiteHex\MerchantSDK\Constants;
-use LiteHex\MerchantSDK\Utils\HttpRequest;
+use MerchantSDK\Constants;
+use MerchantSDK\Utils\HttpRequest;
 
 /**
  * Server

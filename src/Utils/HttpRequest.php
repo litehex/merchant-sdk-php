@@ -1,6 +1,6 @@
 <?php
 
-namespace LiteHex\MerchantSDK\Utils;
+namespace MerchantSDK\Utils;
 
 /**
  * Http Request
