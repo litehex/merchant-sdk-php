@@ -36,4 +36,4 @@ $settings = [
 ];
 
 $TronGate = new \MerchantSDK\Api("493140774:a52d0f343000f2aeb773c6bd6233bd92");
-$TronGate->setupWebhookHandler(MyHandler::class, $settings);
+$TronGate->setupWebhook(MyHandler::class, $settings);

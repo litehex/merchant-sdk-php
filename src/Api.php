@@ -58,23 +58,16 @@ class Api
      * @param string $handler
      * @param array $settings
      */
-    public function setupWebhookHandler(string $handler, array $settings = []): void
+    public function setupWebhook(string $handler, array $settings = []): void
     {
         /** @var WebhookHandler $HandlerClass */
         $HandlerClass = new $handler($this);
-
-        // If input wasn't empty, go ahead and initialize the handler
         if (($PHPInputs = file_get_contents('php://input')) != null) {
-
-            // Check for the webhook settings
             if (isset($settings['ip_strict']) && $settings['ip_strict']) {
                 if (!$this->Server()->validateConnection($_SERVER['REMOTE_ADDR'])) return;
             }
-
-            // Decode the JSON and pass it to the handler
             $Decode = json_decode($PHPInputs, true);
-            $HandlerClass->onReceiveUpdate($Decode['_'], $Decode['input']);
-
+            $HandlerClass->handleUpdate($Decode['_'], $Decode['data']);
         }
 
     }

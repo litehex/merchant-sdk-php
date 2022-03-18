@@ -19,9 +19,9 @@ abstract class WebhookHandler implements WebhookEvents
      * @param array $input
      * @return void
      */
-    public function onReceiveUpdate(string $type, array $input): void
+    public function handleUpdate(string $type, array $input): void
     {
-        if ($type == "PING_WEBHOOK") $this->onWebhookStatus();
+        if ($type == "PING_WEBHOOK") $this->sendStatus();
         ($this->getUpdateType($type))($input);
     }
 
@@ -43,7 +43,7 @@ abstract class WebhookHandler implements WebhookEvents
      *
      * @return void
      */
-    private function onWebhookStatus(): void
+    private function sendStatus(): void
     {
         header('Content-Type: application/json');
         echo json_encode(['ok' => true, 'timestamp' => time()], JSON_PRETTY_PRINT);
