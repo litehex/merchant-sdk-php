@@ -13,32 +13,37 @@ class HttpRequest
 {
 
     /**
-     * @var array
+     * @var string $raw_input Raw input
+     */
+    private string $raw_input;
+
+    /**
+     * @var array $headers HTTP Headers
      */
     private array $headers;
 
     /**
-     * @var array
+     * @var array $query String query
      */
     private array $query;
 
     /**
-     * @var string
+     * @var array $input This data will convert to JSON
      */
-    private string $input;
+    private array $input;
 
     /**
-     * Http Request Constructor
+     * HTTPRequest Constructor
      */
-    public function __construct(array $headers = [], array $queries = [])
+    public function __construct()
     {
-        $this->headers = $headers ?? [];
-        $this->query = $queries ?? [];
+        $this->headers = $this->input = $this->query = [];
+        $this->raw_input = "";
     }
 
     /**
      * @param array $headers
-     * @return HttpRequest
+     * @return HTTPRequest
      */
     public function setHeaders(array $headers): self
     {
@@ -47,49 +52,67 @@ class HttpRequest
     }
 
     /**
-     * @param string $input
-     * @return HttpRequest
+     * @param array $input
+     * @return HTTPRequest
      */
-    public function setInput(string $input): self
+    public function setJsonInput(array $input): self
     {
         $this->input = $input;
         return $this;
     }
 
     /**
-     * @param array $query
-     * @return HttpRequest
+     * @param string $input
+     * @return HTTPRequest
      */
-    public function setQueries(array $query): self
+    public function setRawInput(string $input): self
+    {
+        $this->raw_input = $input;
+        return $this;
+    }
+
+    /**
+     * @param array $query
+     * @return HTTPRequest
+     */
+    public function setStringQuery(array $query): self
     {
         $this->query = $query;
         return $this;
     }
 
-    public function sendRequest(string $url): string
+    /**
+     * @param string $url
+     * @return string|bool
+     */
+    public function sendRequest(string $url): string|bool
     {
         $queryString = http_build_query($this->query);
-        $endPoint = $url . "?" . $queryString;
-        $curl = curl_init($endPoint);
+        if (!str_contains($url, "?")) {
+            if ($queryString != "") $endPointUrl = $url . "?" . $queryString;
+            else $endPointUrl = $url;
+        } else $endPointUrl = $url . "&" . $queryString;
+        $curl = curl_init($endPointUrl);
 
         $headers = [];
         foreach ($this->headers as $key => $value) {
             $headers[] = "$key: $value";
         }
 
-        if ($this->input != []) {
-            curl_setopt($curl, CURLOPT_POSTFIELDS, $this->input);
+        if ($this->input != [] || $this->raw_input != "") {
+            curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($this->input));
             $headers[] = "Content-Type: application/json";
         }
 
         curl_setopt_array($curl, array(
-            CURLOPT_URL => $endPoint,
+            CURLOPT_URL => $endPointUrl,
             CURLOPT_HTTPHEADER => $headers,
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_FOLLOWLOCATION => true,
         ));
 
         $response = curl_exec($curl);
+        if (curl_getinfo($curl, CURLINFO_HTTP_CODE) != 200) return false;
         curl_close($curl);
 
         return $response;
