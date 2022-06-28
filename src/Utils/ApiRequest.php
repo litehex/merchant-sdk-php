@@ -32,7 +32,7 @@ abstract class ApiRequest
 	 */
 	public function __construct(string $apiToken)
 	{
-		self::$headers['X-MERCHANT-TOKEN'] = $apiToken;
+		self::$headers['X-API-KEY'] = $apiToken;
 		self::$headers['User-Agent'] = "LiteHex/MerchantSDK v" . Api::VERSION . " (PHP " . PHP_VERSION . ")";
 	}
 
