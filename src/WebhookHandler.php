@@ -1,6 +1,6 @@
 <?php
 
-namespace Litehex\MerchantSDK\Modules;
+namespace Litehex\MerchantSDK;
 
 use Litehex\MerchantSDK\Interfaces\WebhookEvents;
 

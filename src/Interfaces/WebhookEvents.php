@@ -3,7 +3,7 @@
 namespace Litehex\MerchantSDK\Interfaces;
 
 /**
- * Webhook Events
+ * Webhook Events class
  *
  * @link    https://github.com/litehex/merchant-sdk-php
  * @author  Shahrad Elahi <shahrad@litehex.com>

@@ -6,7 +6,6 @@ use EasyHttp\Client;
 use Litehex\MerchantSDK\Features\Invoices;
 use Litehex\MerchantSDK\Features\Products;
 use Litehex\MerchantSDK\Features\Wallets;
-use Litehex\MerchantSDK\Modules\WebhookHandler;
 
 /**
  * Api class
