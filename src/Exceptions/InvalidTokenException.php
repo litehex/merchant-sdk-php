@@ -1,9 +1,9 @@
 <?php
 
-namespace MerchantSDK\Exceptions;
+namespace Litehex\MerchantSDK\Exceptions;
 
 /**
- * Invalid Token Exception
+ * Invalid Token exception
  *
  * @link    https://github.com/litehex/merchant-sdk-php
  * @author  Shahrad Elahi <shahrad@litehex.com>
@@ -11,5 +11,7 @@ namespace MerchantSDK\Exceptions;
  */
 class InvalidTokenException extends \Exception
 {
+
+	protected $message = 'Invalid Token';
 
 }

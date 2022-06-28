@@ -1,5 +1,5 @@
 # merchant-sdk-php
-This is an official PHP SDK for the [merchant-sdk](https://docs.litehex.com/merchant-sdk)
+This is official PHP SDK for the [merchant-sdk](https://docs.litehex.com/merchant-sdk)
 
 ## Installation
 ```

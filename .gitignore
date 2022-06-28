@@ -1,6 +1,7 @@
 # Jetbrain project structure
 .idea
 
-# Installed test libraries
-vendor
+# Installed libraries
+/vendor
+/composer.lock
 

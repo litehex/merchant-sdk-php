@@ -1,11 +1,11 @@
 <?php
 
-namespace MerchantSDK\Features;
+namespace Litehex\MerchantSDK\Features;
 
-use MerchantSDK\Utils\ApiRequest;
+use Litehex\MerchantSDK\Utils\ApiRequest;
 
 /**
- * Products
+ * Products class
  *
  * @link    https://github.com/litehex/merchant-sdk-php
  * @author  Shahrad Elahi <shahrad@litehex.com>
@@ -14,63 +14,60 @@ use MerchantSDK\Utils\ApiRequest;
 class Products extends ApiRequest
 {
 
-    /**
-     * Get Product
-     *
-     * @param string $productId
-     * @return array
-     */
-    public function getProduct(string $productId): array
-    {
-        return parent::sendRequest('products/getProduct', [
-            'id' => $productId
-        ]);
-    }
+	/**
+	 * Get a specific product
+	 *
+	 * @param string $productUuid
+	 * @return array
+	 */
+	public function get(string $productUuid): array
+	{
+		return parent::call('GET', "products/${$productUuid}");
+	}
 
-    /**
-     * Get Products
-     *
-     * @param array $params
-     * @return array
-     */
-    public function getProducts(array $params = []): array
-    {
-        return parent::sendRequest('products/getProducts', $params);
-    }
+	/**
+	 * Scan in products
+	 *
+	 * @param array $params ["keyword", "page_size", "page", "sort_by" => "asc|desc", "sort_by_field" => "id|name|price|created_at|updated_at"]
+	 * @return array
+	 */
+	public function scan(array $params = []): array
+	{
+		return parent::call('POST', 'products/scan', [], $params);
+	}
 
-    /**
-     * Create Product
-     *
-     * @param array $params
-     * @return array
-     */
-    public function createProduct(array $params): array
-    {
-        return parent::sendRequest('products/createProduct', $params);
-    }
+	/**
+	 * Create a Product
+	 *
+	 * @param array $params
+	 * @return array
+	 */
+	public function create(array $params): array
+	{
+		return parent::call('POST', 'products/create', [], $params);
+	}
 
-    /**
-     * Update Product
-     *
-     * @param array $params
-     * @return array
-     */
-    public function updateProduct(array $params): array
-    {
-        return parent::sendRequest('products/updateProduct', $params);
-    }
+	/**
+	 * Update a specific product
+	 *
+	 * @param string $invoiceId
+	 * @param array $params
+	 * @return array
+	 */
+	public function update(string $invoiceId, array $params): array
+	{
+		return parent::call('POST', "products/${$invoiceId}/update", [], $params);
+	}
 
-    /**
-     * Delete Product
-     *
-     * @param string $productId
-     * @return array
-     */
-    public function deleteProduct(string $productId): array
-    {
-        return parent::sendRequest('products/deleteProduct', [
-            'id' => $productId
-        ]);
-    }
+	/**
+	 * Delete a specific product
+	 *
+	 * @param string $productId
+	 * @return array
+	 */
+	public function delete(string $productId): array
+	{
+		return parent::call('GET', "products/${$productId}/delete");
+	}
 
 }

@@ -1,9 +1,9 @@
 <?php
 
-namespace MerchantSDK\Exceptions;
+namespace Litehex\MerchantSDK\Exceptions;
 
 /**
- * Connection Exception
+ * Connection exception
  *
  * @link    https://github.com/litehex/merchant-sdk-php
  * @author  Shahrad Elahi <shahrad@litehex.com>
@@ -11,5 +11,7 @@ namespace MerchantSDK\Exceptions;
  */
 class ConnectionException extends \Exception
 {
+
+	protected $message = 'Connection Error';
 
 }

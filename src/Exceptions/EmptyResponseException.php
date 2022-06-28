@@ -1,9 +1,9 @@
 <?php
 
-namespace MerchantSDK\Exceptions;
+namespace Litehex\MerchantSDK\Exceptions;
 
 /**
- * Empty Response Exception
+ * Empty Response exception
  *
  * @link    https://github.com/litehex/merchant-sdk-php
  * @author  Shahrad Elahi <shahrad@litehex.com>
@@ -11,5 +11,7 @@ namespace MerchantSDK\Exceptions;
  */
 class EmptyResponseException extends \Exception
 {
+
+	protected $message = 'Empty Response';
 
 }

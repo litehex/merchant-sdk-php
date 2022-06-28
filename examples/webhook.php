@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
 
-class MyHandler extends \MerchantSDK\Modules\WebhookHandler
+abstract class MyHandler extends \MerchantSDK\Modules\WebhookHandler
 {
 
     public function __construct(\MerchantSDK\Api $API)
@@ -35,5 +35,5 @@ $settings = [
     'ip_strict' => true, // Highly recommended
 ];
 
-$TronGate = new \MerchantSDK\Api("493140774:a52d0f343000f2aeb773c6bd6233bd92");
-$TronGate->setupWebhook(MyHandler::class, $settings);
+$MerchantSDK = new \MerchantSDK\Api("493140774:a52d0f343000f2aeb773c6bd6233bd92");
+$MerchantSDK->setupWebhook(MyHandler::class, $settings);

@@ -1,11 +1,11 @@
 <?php
 
-namespace MerchantSDK\Modules;
+namespace Litehex\MerchantSDK\Modules;
 
-use MerchantSDK\Interfaces\WebhookEvents;
+use Litehex\MerchantSDK\Interfaces\WebhookEvents;
 
 /**
- * Webhook Handler
+ * Webhook Handler class
  *
  * @link    https://github.com/litehex/merchant-sdk-php
  * @author  Shahrad Elahi <shahrad@litehex.com>
@@ -15,28 +15,34 @@ abstract class WebhookHandler implements WebhookEvents
 {
 
     /**
-     * @param string $type
-     * @param array $input
+     * This method is called when a webhook is received, and it will call the appropriate method.
+     *
+     * @param string $type The type of webhook event
+     * @param array $input If method found in class, it will be called with this array
      * @return void
      */
     public function handleUpdate(string $type, array $input): void
     {
         if ($type == "PING_WEBHOOK") $this->sendStatus();
         $method = $this->getUpdateType($type);
-        $this->$method($input);
+        if (method_exists($this, $method)) {
+            $this->$method($input);
+        }
     }
 
     /**
+     * This method will return the method name of the update type
+     *
      * @param string $type
      * @return string
      */
     private function getUpdateType(string $type): string
     {
-        $res = "on";
-        foreach (explode('_', $type) as $w) {
-            $res .= ucfirst(strtolower($w));
+        $result = "on";
+        foreach (explode('_', $type) as $word) {
+            $result .= ucfirst(strtolower($word));
         }
-        return $res;
+        return $result;
     }
 
     /**

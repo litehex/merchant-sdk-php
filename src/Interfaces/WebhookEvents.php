@@ -1,6 +1,6 @@
 <?php
 
-namespace MerchantSDK\Interfaces;
+namespace Litehex\MerchantSDK\Interfaces;
 
 /**
  * Webhook Events
@@ -12,12 +12,52 @@ namespace MerchantSDK\Interfaces;
 interface WebhookEvents
 {
 
-    public function onPaymentExpired(array $update): void;
+	/**
+	 * On Payment Expired
+	 *
+	 * @param array $update
+	 * @return void
+	 */
+	public function onPaymentExpired(array $update): void;
 
-    public function onPaymentCancelled(array $update): void;
+	/**
+	 * On Payment Refunded
+	 *
+	 * @param array $update
+	 * @return void
+	 */
+	public function onPaymentRefunded(array $update): void;
 
-    public function onPaymentPartiallyPaid(array $update): void;
+	/**
+	 * On Payment Failed
+	 *
+	 * @param array $update
+	 * @return void
+	 */
+	public function onPaymentFailed(array $update): void;
 
-    public function onPaymentCompletePaid(array $update): void;
+	/**
+	 * On Payment Cancelled
+	 *
+	 * @param array $update
+	 * @return void
+	 */
+	public function onPaymentCancelled(array $update): void;
+
+	/**
+	 * On Payment Partially Paid
+	 *
+	 * @param array $update
+	 * @return void
+	 */
+	public function onPaymentPartially(array $update): void;
+
+	/**
+	 * On Payment Complete Paid
+	 *
+	 * @param array $update
+	 * @return void
+	 */
+	public function onPaymentCompleted(array $update): void;
 
 }

@@ -1,9 +1,9 @@
 <?php
 
-namespace MerchantSDK\Utils;
+namespace Litehex\MerchantSDK\Utils;
 
 /**
- * Toolkit class.
+ * Toolkit class
  *
  * @link    https://github.com/litehex/merchant-sdk-php
  * @author  Shahrad Elahi <shahrad@litehex.com>
