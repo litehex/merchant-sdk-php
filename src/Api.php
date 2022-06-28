@@ -79,7 +79,9 @@ class Api
 	 */
 	public function IPAddress(): string
 	{
-		return (new Client())->get(self::API_BASE_URL . '/server')->getBody();
+		$response =  (new Client())->get(self::API_BASE_URL . '/status');
+
+		return json_decode($response->getBody(), true)['ip'];
 	}
 
 	/**
@@ -94,11 +96,12 @@ class Api
 	}
 
 	/**
-	 * @param WebhookHandler $handler
+	 * @param string $handler
 	 * @param array $settings
 	 */
-	public function setupWebhook(WebhookHandler $handler, array $settings = []): void
+	public function setupWebhook(string $handler, array $settings = []): void
 	{
+		/** @var WebhookHandler $webhookHandler */
 		$HandlerClass = new $handler($this);
 
 		if (($PHPInputs = file_get_contents('php://input')) != null) {

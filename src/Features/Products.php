@@ -22,7 +22,7 @@ class Products extends ApiRequest
 	 */
 	public function get(string $productUuid): array
 	{
-		return parent::call('GET', "products/${$productUuid}");
+		return parent::call('GET', "merchant/products/${$productUuid}");
 	}
 
 	/**
@@ -33,7 +33,7 @@ class Products extends ApiRequest
 	 */
 	public function scan(array $params = []): array
 	{
-		return parent::call('POST', 'products/scan', [], $params);
+		return parent::call('POST', 'merchant/products/scan', [], $params);
 	}
 
 	/**
@@ -44,7 +44,7 @@ class Products extends ApiRequest
 	 */
 	public function create(array $params): array
 	{
-		return parent::call('POST', 'products/create', [], $params);
+		return parent::call('POST', 'merchant/products/create', [], $params);
 	}
 
 	/**
@@ -56,7 +56,7 @@ class Products extends ApiRequest
 	 */
 	public function update(string $invoiceId, array $params): array
 	{
-		return parent::call('POST', "products/${$invoiceId}/update", [], $params);
+		return parent::call('POST', "merchant/products/${$invoiceId}/update", [], $params);
 	}
 
 	/**
@@ -67,7 +67,7 @@ class Products extends ApiRequest
 	 */
 	public function delete(string $productId): array
 	{
-		return parent::call('GET', "products/${$productId}/delete");
+		return parent::call('GET', "merchant/products/${$productId}/delete");
 	}
 
 }

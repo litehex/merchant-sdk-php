@@ -22,7 +22,7 @@ class Invoices extends ApiRequest
 	 */
 	public function get(string $invoiceId): array
 	{
-		return parent::call('GET', "invoices/${$invoiceId}");
+		return parent::call('GET', "merchant/invoices/${$invoiceId}");
 	}
 
 	/**
@@ -33,7 +33,7 @@ class Invoices extends ApiRequest
 	 */
 	public function scan(array $params): array
 	{
-		return parent::call('POST', 'invoices/scan', [], $params);
+		return parent::call('POST', 'merchant/invoices/scan', [], $params);
 	}
 
 	/**
@@ -44,7 +44,7 @@ class Invoices extends ApiRequest
 	 */
 	public function create(array $params): array
 	{
-		return parent::call('POST', 'invoices/create', [], $params);
+		return parent::call('POST', 'merchant/invoices/create', [], $params);
 	}
 
 	/**
@@ -56,7 +56,7 @@ class Invoices extends ApiRequest
 	 */
 	public function update(string $invoiceId, array $params): array
 	{
-		return parent::call('POST', "invoices/${$invoiceId}/update", [], $params);
+		return parent::call('POST', "merchant/invoices/${$invoiceId}/update", [], $params);
 	}
 
 	/**
@@ -67,7 +67,7 @@ class Invoices extends ApiRequest
 	 */
 	public function delete(string $invoiceId): array
 	{
-		return parent::call('GET', "invoices/${$invoiceId}/delete");
+		return parent::call('GET', "merchant/invoices/${$invoiceId}/delete");
 	}
 
 }
