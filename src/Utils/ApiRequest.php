@@ -46,7 +46,7 @@ abstract class ApiRequest
 	protected static function call(string $method, string $endpoint, array $query = [], ?array $input = null): array
 	{
 		$response = (new Client())->request($method, Api::MERCHANT_API_URL . $endpoint, [
-			'header' => self::$headers,
+			'headers' => self::$headers,
 			'query' => $query,
 			'body' => $input
 		]);
